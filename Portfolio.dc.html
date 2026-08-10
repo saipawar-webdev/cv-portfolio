@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family:'Bootzy'; src:url('fonts/BootzyTM.woff2') format('woff2'),url('fonts/BootzyTM.woff') format('woff'); font-weight:normal; font-style:normal; font-display:swap; }
+  [style*="'Bootzy'"] { letter-spacing:0.045em; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#faf7f2; }
+  * { box-sizing:border-box; }
+  @keyframes ptf-marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes ptf-pulse { 0%{box-shadow:0 0 0 0 rgba(99,1,0,.45)} 70%{box-shadow:0 0 0 12px rgba(99,1,0,0)} 100%{box-shadow:0 0 0 0 rgba(99,1,0,0)} }
+  a { color:#630100; text-decoration:none; }
+  a:hover { color:#8a1a12; }
+  ::selection { background:#630100; color:#faf7f2; }
+</style>
+</helmet>
+
+<div style="font-family:'Archivo',sans-serif; background:#faf7f2; color:#1c1613; overflow-x:hidden;">
+
+  <!-- ============ STICKY NAV ============ -->
+  <div style="position:sticky; top:0; z-index:60; background:rgba(255,247,236,.9); backdrop-filter:blur(8px); border-bottom:1px solid rgba(99,1,0,.14);">
+    <div style="max-width:1240px; margin:0 auto; padding:14px 40px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#top" style="font-family:'Bootzy','Archivo',sans-serif; font-size:24px; color:#630100; letter-spacing:.3px;">Sai Pawar</a>
+      <div style="display:flex; gap:26px; align-items:center; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase;">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#thesis">Research</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/cv-sai-pawar.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="https://www.linkedin.com/in/saipawar/" target="_blank" rel="noopener" style="color:#630100; font-weight:700;">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top"></div>
+
+  <!-- sprocket border -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+
+  <!-- ============ HERO ============ -->
+  <div style="position:relative; max-width:1240px; margin:0 auto; padding:70px 60px 40px;">
+    <div style="position:absolute; top:78px; left:60px; width:440px; height:528px; background:#fff; padding:18px 18px 22px; box-shadow:0 22px 46px rgba(99,1,0,.20); transform:rotate(-4deg); z-index:3;">
+      <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="assets/photo-intro.jpeg" alt="Sai in Paris" style="width:100%; height:100%; object-fit:cover;" /></div>
+    </div>
+    <img src="assets/pin.png" alt="" style="position:absolute; top:36px; left:212px; width:132px; z-index:5; transform:rotate(-4deg); filter:drop-shadow(0 6px 10px rgba(0,0,0,.28)); pointer-events:none;" />
+
+    <div style="margin-left:auto; width:580px; text-align:right; padding-top:70px;">
+      <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:128px; line-height:.9; color:#630100;">Sai<br>Pawar</div>
+      <div style="height:3px; background:#630100; width:180px; margin:26px 0 24px auto;"></div>
+      <div style="font-family:'Archivo',sans-serif; font-weight:500; font-size:20px; line-height:1.55; color:#1c1613; max-width:490px; margin-left:auto;">I turn commercial data and consumer insight into campaigns that actually make an impact across international markets.</div>
+      <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:30px; flex-wrap:wrap;">
+        <a href="#work" style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; background:#630100; color:#faf7f2; padding:12px 20px;">View the work ↓</a>
+        <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; border:1.5px solid #630100; color:#630100; padding:12px 20px;">Paris, FR</span>
+      </div>
+    </div>
+    <div style="position:absolute; top:44px; right:540px; color:#b0935f; font-size:50px; transform:rotate(10deg);">✷</div>
+  </div>
+
+  <!-- ============ BRAND MARQUEE ============ -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+  <div style="height:58px; background:#1c1613; overflow:hidden; display:flex; align-items:center;">
+    <div style="display:flex; gap:56px; white-space:nowrap; animation:ptf-marquee 28s linear infinite; font-family:'Space Mono',monospace; font-size:15px; letter-spacing:3px; color:#f0d3ce; text-transform:uppercase;">
+      <span>Royal Canin</span><span>✦</span><span>Henkel</span><span>✦</span><span>Ubisoft</span><span>✦</span><span>LVMH</span><span>✦</span><span>L'Oréal</span><span>✦</span><span>EDHEC</span><span>✦</span><span>Royal Canin</span><span>✦</span><span>Henkel</span><span>✦</span><span>Ubisoft</span><span>✦</span><span>LVMH</span><span>✦</span><span>L'Oréal</span><span>✦</span><span>EDHEC</span><span>✦</span>
+    </div>
+  </div>
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+
+  <!-- ============ ABOUT ============ -->
+  <div id="about" style="max-width:1240px; margin:0 auto; padding:100px 60px 80px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;">
+    <div style="position:relative;">
+      <div style="width:100%; aspect-ratio:4/5; background:#fff; padding:16px 16px 62px; box-shadow:0 20px 44px rgba(99,1,0,.20); transform:rotate(3deg);">
+        <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="assets/photo-about.png" alt="Sai in Seoul" style="width:100%; height:100%; object-fit:cover;" /></div>
+        <div style="position:absolute; bottom:20px; left:0; right:0; text-align:center; font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100;">on the job ✎</div>
+      </div>
+      <div style="position:absolute; top:-18px; left:-14px; background:#b0935f; color:#faf7f2; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; padding:8px 14px; transform:rotate(-8deg); box-shadow:0 6px 14px rgba(0,0,0,.15);">EDHEC MiM '26</div>
+    </div>
+    <div>
+      <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ about</div>
+      <div style="margin:14px 0 24px;">
+        <div style="display:inline-block; background:#faf7f2; box-shadow:0 3px 0 rgba(99,1,0,.12), 0 10px 22px rgba(99,1,0,.10); border-radius:8px; padding:4px 16px;"><span style="font-family:'Bootzy','Archivo',sans-serif; font-size:72px; line-height:1.05; color:#630100;">marketer</span></div>
+        <div style="margin-top:16px; font-family:'Playfair Display',serif; font-style:italic; font-size:26px; line-height:1.35; color:#1c1613;">part strategist, part storyteller.</div>
+      </div>
+      <p style="font-family:'Archivo',sans-serif; font-size:18px; line-height:1.7; color:#1c1613; max-width:600px;">I am a data-driven marketing professional with hands-on experience in global brand campaigns, sell-out analysis, and cross-market coordination across European and APAC markets. I like living where the numbers meet the creative: reading a sell-out report in the morning, shaping a CRM journey by the afternoon.</p>
+      <p style="font-family:'Archivo',sans-serif; font-size:18px; line-height:1.7; color:#1c1613; max-width:600px;">My background spans brand, CRM and e-commerce for teams like Royal Canin, Henkel and Ubisoft, plus award-winning innovation projects with LVMH and L'Oréal. Currently finishing my Master in Management on academic exchange in Seoul.</p>
+      <div style="display:flex; gap:36px; margin-top:30px; flex-wrap:wrap;">
+        <div><div style="font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#630100;">4+</div><div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; color:#8a1a12;">MARKETS COORDINATED</div></div>
+        <div><div style="font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#630100;">Mentee</div><div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; color:#8a1a12;">WOMEN@DIOR &amp; UNESCO</div></div>
+        <div><div style="font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#630100;">Top 5%</div><div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; color:#8a1a12;">DEAN'S LIST, EDHEC</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FEATURED WORK — sliding film strip ============ -->
+  <div id="work" style="padding:90px 0 96px;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 60px 44px; display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ selected work</div>
+        <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:76px; line-height:.95; color:#630100; margin-top:10px;">Featured projects</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:22px; color:#8a1a12; max-width:340px; text-align:right;">A rolling reel of campaigns, launches and experiments.</div>
+    </div>
+
+    <!-- film strip -->
+    <div style="background:#630100; padding:14px 0; position:relative;">
+      <div style="height:20px; background-image:repeating-linear-gradient(90deg,#faf7f2 0 13px,transparent 13px 34px); background-size:34px 13px; background-repeat:repeat-x; background-position:center;"></div>
+      <div onMouseEnter="{{ reelOn }}" onMouseLeave="{{ reelOff }}" style="overflow:hidden; padding:14px 0;">
+        <div style="display:flex; width:max-content; animation:ptf-marquee 44s linear infinite; animation-play-state:{{ reelState }};">
+          <sc-for list="{{ projectsLoop }}" as="p" hint-placeholder-count="8">
+            <a href="{{ p.href }}" target="_blank" rel="noopener" style="flex:0 0 360px; margin:0 10px; background:#faf7f2; padding:16px; text-decoration:none; display:block;">
+              <div style="width:100%; aspect-ratio:4/3; position:relative; overflow:hidden; background:repeating-linear-gradient(45deg,#ece5da 0 14px,#e2d9cb 14px 28px);">
+                <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ p.img }}" alt="{{ p.title }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" />
+                </sc-if>
+                <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}">
+                  <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Space Mono',monospace; font-size:12px; color:#630100;">project-visual.jpg</span></div>
+                </sc-if>
+                <div style="position:absolute; top:12px; left:12px; background:#630100; color:#faf7f2; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px; padding:5px 9px;">{{ p.tag }}</div>
+                <sc-if value="{{ p.hasDeck }}" hint-placeholder-val="{{ true }}">
+                  <div style="position:absolute; bottom:10px; right:10px; background:rgba(99,1,0,.9); color:#faf7f2; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px; padding:5px 9px;">VIEW DECK →</div>
+                </sc-if>
+              </div>
+              <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:26px; color:#630100; margin:14px 0 6px;">{{ p.title }}</div>
+              <div style="font-family:'Archivo',sans-serif; font-size:14px; line-height:1.5; color:#4b3a33;">{{ p.desc }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="height:20px; background-image:repeating-linear-gradient(90deg,#faf7f2 0 13px,transparent 13px 34px); background-size:34px 13px; background-repeat:repeat-x; background-position:center;"></div>
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCE MAP ============ -->
+  <div id="experience" style="background:#f4e6d6; padding:90px 0 84px;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 60px; text-align:center;">
+      <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ experience</div>
+      <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:70px; line-height:.98; color:#630100; margin:10px 0 8px;">Where I've worked</div>
+      <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#8a1a12; margin-bottom:36px;">five cities, one story ✈</div>
+    </div>
+
+    <div style="max-width:1200px; margin:0 auto; padding:0 20px;">
+      <div ref="{{ mapRef }}" onMouseMove="{{ onMapMove }}" style="position:relative; width:100%; aspect-ratio:16/9; cursor:crosshair;">
+        <img src="assets/worked-map-themed.png" alt="World map of cities where Sai has worked" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none;" />
+
+        <!-- interactive city pins (hover to reveal) -->
+        <sc-for list="{{ cities }}" as="c" hint-placeholder-count="5">
+          <div style="{{ c.wrapStyle }}" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeave }}">
+            <div style="{{ c.dotStyle }}"></div>
+            <sc-if value="{{ c.isActive }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; bottom:22px; left:50%; transform:translateX(-50%); width:264px; background:#faf7f2; border:1.5px solid #630100; box-shadow:0 16px 34px rgba(99,1,0,.32); padding:16px 18px; text-align:left; z-index:60; pointer-events:none;">
+                <sc-if value="{{ c.hasLogo }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:inline-flex; align-items:center; justify-content:center; height:44px; padding:6px 12px; background:#fff; border:1px solid #eadfce; border-radius:6px; margin-bottom:10px;">
+                    <img src="{{ c.logo }}" alt="{{ c.company }} logo" style="max-height:32px; max-width:180px; width:auto; height:auto; object-fit:contain; display:block;" />
+                  </div>
+                </sc-if>
+                <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a1a12; text-transform:uppercase;">{{ c.loc }}</div>
+                <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:24px; color:#630100; margin:4px 0 2px;">{{ c.company }}</div>
+                <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:#1c1613; margin-bottom:8px;">{{ c.title }}</div>
+                <div style="font-family:'Archivo',sans-serif; font-size:13px; line-height:1.55; color:#4b3a33;">{{ c.details }}</div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- legends -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; margin-top:26px;">
+        <div style="display:flex; gap:22px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:12px; color:#1c1613;"><span style="width:13px; height:13px; border-radius:50%; background:#dd4c48; border:2px solid #faf7f2; box-shadow:0 0 0 1px #dd4c48; display:inline-block;"></span> Cities I've worked in</div>
+          <div style="display:flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:12px; color:#1c1613;"><span style="width:14px; height:14px; border-radius:50%; background-image:radial-gradient(#c0504d 34%,transparent 36%); background-size:4px 4px; display:inline-block;"></span> Markets activated</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a1a12; text-transform:uppercase; margin-bottom:10px;">Markets I've worked with</div>
+          <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end;">
+            <div style="display:flex; gap:8px;">
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">United States</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Turkey</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Germany</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Australia</span>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">New Zealand</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Belgium</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Netherlands</span>
+              <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">France</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sprocket border -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+
+  <!-- ============ RESEARCH / THESIS ============ -->
+  <div id="thesis" style="padding:96px 0;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 60px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ research</div>
+        <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:46px; line-height:1.04; color:#630100; margin:14px 0 8px;">Cultural Influence &amp; Perceived Product Quality in K-Beauty Consumption</div>
+        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:23px; color:#8a1a12; margin-bottom:20px;">A qualitative study of French Gen-Z consumers</div>
+        <p style="font-family:'Archivo',sans-serif; font-size:18px; line-height:1.7; color:#1c1613; max-width:600px;">Written during my exchange year in Seoul, this study digs into how cultural narrative shapes the way French Gen-Z reads quality in Korean beauty, and what that means for brands building trust across borders.</p>
+        <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+          <a href="assets/thesis-defense.pdf" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; background:#630100; color:#faf7f2; padding:12px 20px; text-decoration:none;">Read the deck →</a>
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; border:1.5px solid #630100; color:#630100; padding:12px 20px;">EWHA × EDHEC</span>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="position:absolute; top:20px; left:24px; width:100%; aspect-ratio:16/10; background:#e4cfb4; box-shadow:0 14px 30px rgba(99,1,0,.16); transform:rotate(5deg); overflow:hidden;"><img src="assets/seoul-thumb.png" alt="Seoul skyline" style="width:100%; height:100%; object-fit:cover;" /></div>
+        <div style="position:absolute; top:10px; left:12px; width:100%; aspect-ratio:16/10; background:#eddcc6; box-shadow:0 14px 30px rgba(99,1,0,.16); transform:rotate(2.5deg);"></div>
+        <a href="assets/thesis-defense.pdf" target="_blank" rel="noopener" style="position:relative; display:block; width:100%; aspect-ratio:16/10; background:#fff; padding:14px; box-shadow:0 20px 44px rgba(99,1,0,.22);">
+          <img src="assets/thesis-thumb.jpg" alt="Thesis title slide" style="width:100%; height:100%; object-fit:cover;" />
+        </a>
+        <div style="position:absolute; bottom:-22px; right:-10px; background:#b0935f; color:#faf7f2; font-family:'Playfair Display',serif; font-style:italic; font-size:20px; padding:10px 16px; transform:rotate(-6deg); box-shadow:0 8px 18px rgba(0,0,0,.18);">K-beauty ♡</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sprocket border -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+
+  <!-- ============ OFF THE CLOCK — photo sticker + arrows ============ -->
+  <div id="girlie" style="padding:90px 0 100px; position:relative; overflow:hidden;">
+    <div style="text-align:center; max-width:720px; margin:0 auto 20px; padding:0 40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ off the clock</div>
+      <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:64px; line-height:.98; color:#630100; margin-top:10px;">Spilling my other personalities</div>
+    </div>
+
+    <div style="max-width:1300px; margin:0 auto; padding:0 20px; display:flex; align-items:stretch; justify-content:center; gap:16px; flex-wrap:nowrap;">
+      <!-- LEFT captions column -->
+      <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:space-around; padding:40px 0;">
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">content creator on TikTok &amp; Instagram</div>
+          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(-8deg); flex-shrink:0;" />
+        </div>
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">powered by iced coffee &amp; long walks</div>
+          <img src="assets/arrow-loop.png" alt="" style="width:100px; transform:scaleX(-1); flex-shrink:0;" />
+        </div>
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">day dreaming about my next solo trips (open to recommendations)</div>
+          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(10deg); flex-shrink:0;" />
+        </div>
+      </div>
+
+      <!-- camera with photo carousel -->
+      <div style="flex:0 0 auto; width:clamp(360px, 44vw, 620px); transform:rotate(-1deg); z-index:5;">
+        <div style="position:relative; width:100%; aspect-ratio:1080/1350;">
+          <!-- screen (behind frame) -->
+          <div style="position:absolute; left:29.17%; top:10.96%; width:49.35%; height:54.37%; overflow:hidden; background:#1c1613; z-index:1;">
+            <sc-if value="{{ ocIsImg }}" hint-placeholder-val="{{ true }}">
+              <img src="{{ ocImg }}" alt="Sai off the clock" style="width:100%; height:100%; object-fit:cover;" />
+            </sc-if>
+            <sc-if value="{{ ocIsPh }}" hint-placeholder-val="{{ false }}">
+              <div style="width:100%; height:100%; background:repeating-linear-gradient(45deg,#ece5da 0 14px,#e2d9cb 14px 28px); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px;"><span style="font-family:'Space Mono',monospace; font-size:13px; color:#630100; line-height:1.5;">{{ ocLabel }}</span></div>
+            </sc-if>
+          </div>
+          <!-- frame overlay -->
+          <img src="assets/camera-frame.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;" />
+          <!-- click here label -->
+          <div style="position:absolute; left:55%; top:68.5%; font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#f4d270; z-index:3; pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,.4);">click here</div>
+          <!-- clickable button over circled control -->
+          <button type="button" onClick="{{ ocNext }}" aria-label="Next photo" style="position:absolute; left:60%; top:79.5%; width:16%; height:9%; background:transparent; border:none; cursor:pointer; z-index:4; border-radius:50%;"></button>
+        </div>
+      </div>
+
+      <!-- RIGHT captions column -->
+      <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:space-around; padding:40px 0;">
+        <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
+          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(8deg); flex-shrink:0;" />
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">mentally still in Seoul having Kimchi Jjigae</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
+          <img src="assets/arrow-loop.png" alt="" style="width:100px; flex-shrink:0;" />
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">soft spot for K-beauty &amp; great branding</div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
+          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(-10deg); flex-shrink:0;" />
+          <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">currently hunting the best cafés in Paris</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sprocket border -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+
+  <!-- ============ CONTACT ============ -->
+  <div id="contact" style="max-width:1240px; margin:0 auto; padding:40px 60px 60px; text-align:center;">
+    <div style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:3px; color:#8a1a12; text-transform:uppercase;">/ let's connect</div>
+    <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:92px; line-height:.94; color:#630100; margin:14px 0 10px;">I can build your<br>next project.</div>
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:24px; color:#8a1a12; max-width:620px; margin:0 auto 34px;">Open to Marketing roles in brand, CRM and e-commerce across Europe. Let's talk!</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://www.linkedin.com/in/saipawar/" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace; font-size:14px; letter-spacing:2px; text-transform:uppercase; background:#630100; color:#faf7f2; padding:15px 26px;">LinkedIn ↗</a>
+      <a href="assets/cv-sai-pawar.pdf" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace; font-size:14px; letter-spacing:2px; text-transform:uppercase; border:1.5px solid #630100; color:#630100; padding:15px 26px;">Download CV ↓</a>
+    </div>
+
+    <!-- contact form -->
+    <div style="max-width:960px; margin:56px auto 0; background:#fff; border:1px solid rgba(99,1,0,.14); box-shadow:0 22px 50px rgba(99,1,0,.12); padding:48px 52px; text-align:left;">
+      <div style="font-family:'Playfair Display',serif; font-size:28px; line-height:1.3; color:#1c1613; margin-bottom:34px;">This isn't just a contact form. It's where the <span style="font-style:italic; color:#630100;">next campaign</span> begins.</div>
+      <form onSubmit="{{ onSubmit }}">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px 40px;">
+          <label style="display:block;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#630100;">First name *</span>
+            <input type="text" required placeholder="Sai" style="width:100%; margin-top:8px; padding:10px 2px; border:none; border-bottom:1.5px solid rgba(99,1,0,.35); background:transparent; font-family:'Archivo',sans-serif; font-size:16px; color:#1c1613; outline:none;" />
+          </label>
+          <label style="display:block;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#630100;">Last name *</span>
+            <input type="text" required placeholder="Pawar" style="width:100%; margin-top:8px; padding:10px 2px; border:none; border-bottom:1.5px solid rgba(99,1,0,.35); background:transparent; font-family:'Archivo',sans-serif; font-size:16px; color:#1c1613; outline:none;" />
+          </label>
+          <label style="display:block;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#630100;">Email *</span>
+            <input type="email" required placeholder="you@company.com" style="width:100%; margin-top:8px; padding:10px 2px; border:none; border-bottom:1.5px solid rgba(99,1,0,.35); background:transparent; font-family:'Archivo',sans-serif; font-size:16px; color:#1c1613; outline:none;" />
+          </label>
+          <label style="display:block;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#630100;">Where should I call or text?</span>
+            <input type="tel" placeholder="+33 7 12 34 56 78" style="width:100%; margin-top:8px; padding:10px 2px; border:none; border-bottom:1.5px solid rgba(99,1,0,.35); background:transparent; font-family:'Archivo',sans-serif; font-size:16px; color:#1c1613; outline:none;" />
+          </label>
+        </div>
+        <label style="display:block; margin-top:28px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#630100;">Tell me what's on your mind... *</span>
+          <textarea required rows="3" placeholder="Let your thoughts flow, no idea is too crazy." style="width:100%; margin-top:8px; padding:10px 2px; border:none; border-bottom:1.5px solid rgba(99,1,0,.35); background:transparent; font-family:'Archivo',sans-serif; font-size:16px; color:#1c1613; outline:none; resize:vertical;"></textarea>
+        </label>
+        <div style="text-align:center; margin-top:40px;">
+          <button type="submit" style="font-family:'Space Mono',monospace; font-size:14px; letter-spacing:3px; text-transform:uppercase; background:#630100; color:#faf7f2; border:none; padding:16px 60px; cursor:pointer;" style-hover="background:#7d0d05;">{{ submitLabel }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div style="height:26px; background:#630100; background-image:repeating-linear-gradient(90deg,#faf7f2 0 12px,transparent 12px 30px); background-size:30px 12px; background-repeat:repeat-x; background-position:center;"></div>
+  <div style="background:#1c1613; padding:24px 60px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+    <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:2px; color:#e6a89f;">© 2026 SAI PAWAR</span>
+    <span style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:#f0d3ce;">brand · crm · ecommerce ♡</span>
+    <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:2px; color:#e6a89f;">PARIS · 2026</span>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.mapRef = React.createRef();
+    this.state = { active: null, reelPaused: false, reelHover: false, ocIdx: 0, sent: false };
+    this._last = 0;
+    this.cityData = [
+      { name: "PARIS", left: 48.6, top: 41, above: false, logo: "assets/logo-ubisoft.png", loc: "Paris, France · 2026", company: "Ubisoft", title: "CRM Strategy Assistant", details: "Coordinating omnichannel CRM campaigns for Ubisoft+ and the Ubisoft Store: briefs, JIRA tickets, asset follow-ups, KPI reporting and A/B tests." },
+      { name: "MONTPELLIER", left: 48.3, top: 44.6, above: false, logo: "assets/logo-royalcanin.png", loc: "Montpellier, France · 2025", company: "Royal Canin", title: "Digital Project Manager Assistant", details: "Global digital transformation rollout onboarding 4 international markets; eCRM assets, KPIs and cross-functional stakeholder alignment." },
+      { name: "BRUXELLES", left: 49.5, top: 39, above: true, logo: "assets/logo-henkel.png", loc: "Brussels, Belgium · 2024", company: "Henkel", title: "E-commerce & Digital Marketing Assistant", details: "Sell-out and Nielsen benchmarks, A+ content and SEO for Bol.com, Kruidvat and Albert Heijn across the BNL region." },
+      { name: "MUMBAI", left: 67, top: 58.6, above: false, logo: "assets/logo-capgemini.png", loc: "Mumbai, India · 2021 to 2022", company: "Capgemini", title: "Senior Analyst", details: "North America SBU. Twice awarded the Star Award for outstanding performance." },
+      { name: "SEOUL", left: 81.6, top: 48.5, above: false, logo: "assets/logo-ewha.jpeg", loc: "Seoul, South Korea · 2025 to 2026", company: "EWHA Womans University", title: "Global MBA Exchange Year", details: "Marketing specialization and master's thesis on K-beauty perception among French Gen-Z consumers." }
+    ];
+  }
+
+  handleMove = (e) => {
+    const el = this.mapRef.current;
+    if (!el) return;
+    const now = Date.now();
+    if (now - this._last < 60) return;
+    this._last = now;
+    const r = el.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    const p = document.createElement("div");
+    p.textContent = "\u2708";
+    p.style.cssText = "position:absolute;left:" + x + "px;top:" + y + "px;transform:translate(-50%,-50%) rotate(42deg);font-size:34px;color:#630100;pointer-events:none;opacity:1;transition:opacity 2.4s ease, transform 2.4s ease;z-index:15;filter:drop-shadow(0 2px 3px rgba(255,247,236,.9));";
+    el.appendChild(p);
+    requestAnimationFrame(() => {
+      p.style.opacity = "0";
+      p.style.transform = "translate(-50%,-50%) rotate(42deg) scale(.5)";
+    });
+    setTimeout(() => { p.remove(); }, 2450);
+  };
+
+  renderVals() {
+    const active = this.state.active;
+    const rawProjects = [
+      { tag: "BRAND", title: "L'Oréal Brandstorm 2024", desc: "Semi-finalist · France · Choose Nova", img: "assets/brandstorm-thumb.png", href: "assets/loreal-brandstorm.pdf" },
+      { tag: "E-COMMERCE", title: "Henkel - E-commerce Promotions", desc: "Syoss promo & A+ content for BNL retailers", img: "assets/proj-henkel-syoss.jpg", href: "assets/henkel-promos.pptx" },
+      { tag: "INNOVATION", title: "LVMH Open Innovation", desc: "Winner · Audience Award", img: "assets/lvmh-thumb.png", href: "assets/lvmh-open-innovation.pdf" },
+      { tag: "IRL", title: "IRL - In Real Life Seoul", desc: "Living the K-beauty market first-hand", img: "assets/proj-irl-seoul.png", href: "" },
+      { tag: "STRATEGY", title: "Bacha Coffee - Marketing Strategy Korea", desc: "Market-entry strategy for Korea", img: "assets/proj-bacha.jpeg", href: "" },
+      { tag: "SOCIAL", title: "K-Beauty & Social Media", desc: "Social-led beauty brand playbook", img: "assets/proj-kbeauty.jpg", href: "" },
+      { tag: "DIGITAL", title: "Kylie Cosmetics - Digital Marketing Analysis", desc: "Digital & DTC growth teardown", img: "assets/proj-kylie.jpeg", href: "" }
+    ];
+    const projects = rawProjects.map(p => ({
+      tag: p.tag, title: p.title, desc: p.desc,
+      img: p.img, hasImg: !!p.img, noImg: !p.img,
+      hasDeck: true, href: p.href || "#"
+    }));
+    const cities = this.cityData.map((c, i) => {
+      const isActive = active === i;
+      return {
+        name: c.name, loc: c.loc, company: c.company, title: c.title, details: c.details,
+        logo: c.logo, hasLogo: !!c.logo,
+        isActive: isActive,
+        onEnter: () => this.setState({ active: i }),
+        onLeave: () => this.setState({ active: null }),
+        wrapStyle: "position:absolute;left:" + c.left + "%;top:" + c.top + "%;width:0;height:0;z-index:" + (isActive ? 45 : 10) + ";",
+        labelStyle: "position:absolute;" + (c.above ? "bottom:14px" : "top:14px") + ";left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.5px;color:#fffdf7;text-shadow:0 1px 2px #1c1613,0 0 3px #1c1613,0 0 4px #1c1613;pointer-events:none;",
+        dotStyle: "position:absolute;left:0;top:0;transform:translate(-50%,-50%);width:" + (isActive ? 18 : 14) + "px;height:" + (isActive ? 18 : 14) + "px;border-radius:50%;background:#630100;border:3px solid #faf7f2;box-shadow:0 2px 6px rgba(0,0,0,.35);cursor:pointer;animation:ptf-pulse 2.2s ease-out infinite;"
+      };
+    });
+    const ocItems = [
+      { img: "assets/photo-offclock.png" },
+      { img: "assets/oc-2.jpeg" },
+      { img: "assets/oc-3.jpeg" },
+      { img: "assets/oc-4.jpeg" },
+      { img: "assets/oc-5.jpeg" },
+      { img: "assets/oc-6.jpeg" },
+      { img: "assets/oc-7.jpeg" }
+    ];
+    const oc = ocItems[this.state.ocIdx % ocItems.length];
+    return { mapRef: this.mapRef, onMapMove: this.handleMove, cities: cities, projectsLoop: projects.concat(projects),
+      reelState: this.state.reelHover ? "paused" : "running",
+      reelOn: () => this.setState({ reelHover: true }),
+      reelOff: () => this.setState({ reelHover: false }),
+      ocIsImg: !!oc.img, ocImg: oc.img || "", ocIsPh: !oc.img, ocLabel: oc.ph || "",
+      ocNext: () => this.setState(s => ({ ocIdx: (s.ocIdx + 1) % ocItems.length })),
+      submitLabel: this.state.sent ? "Thank you ♡" : "Submit",
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); } };
+  }
+}
+</script>
+</body>
+</html>

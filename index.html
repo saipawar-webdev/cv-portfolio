@@ -53,7 +53,15 @@
   .m-footer{ padding:20px !important; justify-content:center !important; text-align:center !important; }
 
   .m-pad{ padding-left:20px !important; padding-right:20px !important; }
-  .m-pillrow{ flex-wrap:wrap !important; }
+
+  /* map: wider, more present on small screens */
+  .m-mapwrap{ padding-left:12px !important; padding-right:12px !important; }
+
+  /* country pills: 3 per row (3 / 3 / 2) */
+  .m-legend-right{ text-align:center !important; width:100% !important; }
+  .m-legend-pills{ display:grid !important; grid-template-columns:repeat(3,1fr) !important; gap:8px !important; align-items:stretch !important; }
+  .m-pillrow{ display:contents !important; }
+  .m-legend-pills span{ text-align:center !important; display:flex !important; align-items:center !important; justify-content:center !important; }
 }
 </style>
 <script src="./support.js"></script>
@@ -202,9 +210,9 @@
       <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#8a1a12; margin-bottom:36px;">five cities, one story ✈</div>
     </div>
 
-    <div style="max-width:1200px; margin:0 auto; padding:0 20px;">
+    <div class="m-mapwrap" style="max-width:1200px; margin:0 auto; padding:0 20px;">
       <div ref="{{ mapRef }}" onMouseMove="{{ onMapMove }}" style="position:relative; width:100%; aspect-ratio:16/9; cursor:crosshair;">
-        <img loading="lazy" decoding="async" src="assets/std/worked-map-themed.jpg" alt="World map of cities where Sai has worked" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none;" />
+        <img decoding="async" src="assets/std/worked-map-themed.jpg" alt="World map of cities where Sai has worked" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none;" />
 
         <!-- interactive city pins (hover to reveal) -->
         <sc-for list="{{ cities }}" as="c" hint-placeholder-count="5">
@@ -233,9 +241,9 @@
           <div style="display:flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:12px; color:#1c1613;"><span style="width:13px; height:13px; border-radius:50%; background:#dd4c48; border:2px solid #faf7f2; box-shadow:0 0 0 1px #dd4c48; display:inline-block;"></span> Cities I've worked in</div>
           <div style="display:flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:12px; color:#1c1613;"><span style="width:14px; height:14px; border-radius:50%; background-image:radial-gradient(#c0504d 34%,transparent 36%); background-size:4px 4px; display:inline-block;"></span> Markets activated</div>
         </div>
-        <div style="text-align:right;">
+        <div class="m-legend-right" style="text-align:right;">
           <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a1a12; text-transform:uppercase; margin-bottom:10px;">Markets I've worked with</div>
-          <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end;">
+          <div class="m-legend-pills" style="display:flex; flex-direction:column; gap:8px; align-items:flex-end;">
             <div class="m-pillrow" style="display:flex; gap:8px;">
               <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">United States</span>
               <span style="font-family:'Archivo',sans-serif; font-size:13px; font-weight:600; color:#630100; background:#faf7f2; border:1px solid rgba(99,1,0,.25); padding:6px 12px; border-radius:999px;">Turkey</span>
@@ -314,14 +322,14 @@
           <!-- screen (behind frame) -->
           <div style="position:absolute; left:29.17%; top:10.96%; width:49.35%; height:54.37%; overflow:hidden; background:#1c1613; z-index:1;">
             <sc-if value="{{ ocIsImg }}" hint-placeholder-val="{{ true }}">
-              <img loading="lazy" decoding="async" src="{{ ocImg }}" alt="Sai off the clock" style="width:100%; height:100%; object-fit:cover;" />
+              <img decoding="async" src="{{ ocImg }}" alt="Sai off the clock" style="width:100%; height:100%; object-fit:cover;" />
             </sc-if>
             <sc-if value="{{ ocIsPh }}" hint-placeholder-val="{{ false }}">
               <div style="width:100%; height:100%; background:repeating-linear-gradient(45deg,#ece5da 0 14px,#e2d9cb 14px 28px); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px;"><span style="font-family:'Space Mono',monospace; font-size:13px; color:#630100; line-height:1.5;">{{ ocLabel }}</span></div>
             </sc-if>
           </div>
           <!-- frame overlay -->
-          <img loading="lazy" decoding="async" src="assets/std/camera-frame.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;" />
+          <img decoding="async" src="assets/std/camera-frame.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;" />
           <!-- click here label -->
           <div style="position:absolute; left:55%; top:68.5%; font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#f4d270; z-index:3; pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,.4);">click here</div>
           <!-- clickable button over circled control -->

@@ -42,10 +42,8 @@
 
   .m-offclock{ flex-direction:column !important; flex-wrap:wrap !important; align-items:center !important; gap:4px !important; }
   .m-camera{ width:min(86vw,340px) !important; order:-1 !important; }
-  .m-capcol{ padding:4px 0 !important; justify-content:center !important; gap:16px !important; width:100% !important; }
-  .m-caprow{ justify-content:center !important; text-align:center !important; }
-  .m-caprow img{ display:none !important; }
-  .m-caprow > div{ text-align:center !important; }
+  .m-capcol{ display:none !important; }        /* hide the stacked caption columns */
+  .m-mobilecap{ display:block !important; }    /* show the single cycling caption */
 
   .m-contact{ padding:32px 20px 40px !important; }
   .m-form{ grid-template-columns:1fr !important; }
@@ -337,6 +335,13 @@
         </div>
       </div>
 
+      <!-- MOBILE one-line caption: cycles with the camera button -->
+      <div class="m-mobilecap" style="display:none; width:100%; max-width:380px; text-align:center;">
+        <img decoding="async" src="assets/std/arrow-swoosh.png" alt="" style="width:62px; transform:rotate(78deg); opacity:.85;" />
+        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:22px; color:#630100; line-height:1.35; min-height:3em; display:flex; align-items:center; justify-content:center; padding:2px 14px; transition:opacity .18s ease;">{{ ocCaption }}</div>
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#8a1a12; opacity:.8; margin-top:2px;">tap the camera button for more</div>
+      </div>
+
       <!-- RIGHT captions column -->
       <div class="m-capcol" style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:space-around; padding:40px 0;">
         <div class="m-caprow" style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
@@ -416,7 +421,7 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.mapRef = React.createRef();
-    this.state = { active: null, reelPaused: false, reelHover: false, ocIdx: 0, sent: false };
+    this.state = { active: null, reelPaused: false, reelHover: false, ocIdx: 0, capIdx: 0, sent: false };
     this._last = 0;
     this.cityData = [
       { name: "PARIS", left: 48.6, top: 41, above: false, logo: "assets/std/logo-ubisoft.jpg", loc: "Paris, France · 2026", company: "Ubisoft", title: "CRM Strategy Assistant", details: "Coordinating omnichannel CRM campaigns for Ubisoft+ and the Ubisoft Store: briefs, JIRA tickets, asset follow-ups, KPI reporting and A/B tests." },
@@ -486,12 +491,21 @@ class Component extends DCLogic {
       { img: "assets/std/oc-7.jpg" }
     ];
     const oc = ocItems[this.state.ocIdx % ocItems.length];
+    const captions = [
+      "content creator on TikTok & Instagram",
+      "powered by iced coffee & long walks",
+      "day dreaming about my next solo trips (open to recommendations)",
+      "mentally still in Seoul having Kimchi Jjigae",
+      "soft spot for K-beauty & great branding",
+      "currently hunting the best cafés in Paris"
+    ];
     return { mapRef: this.mapRef, onMapMove: this.handleMove, cities: cities, projectsLoop: projects.concat(projects),
       reelState: this.state.reelHover ? "paused" : "running",
       reelOn: () => this.setState({ reelHover: true }),
       reelOff: () => this.setState({ reelHover: false }),
       ocIsImg: !!oc.img, ocImg: oc.img || "", ocIsPh: !oc.img, ocLabel: oc.ph || "",
-      ocNext: () => this.setState(s => ({ ocIdx: (s.ocIdx + 1) % ocItems.length })),
+      ocCaption: captions[this.state.capIdx % captions.length],
+      ocNext: () => this.setState(s => ({ ocIdx: (s.ocIdx + 1) % ocItems.length, capIdx: (s.capIdx + 1) % captions.length })),
       submitLabel: this.state.sent ? "Thank you ♡" : "Submit",
       onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); } };
   }

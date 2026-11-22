@@ -9,11 +9,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/std/photo-intro.jpg" fetchpriority="high">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
+<title>Sai Pawar · Marketing Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -57,9 +59,9 @@
   <!-- ============ HERO ============ -->
   <div style="position:relative; max-width:1240px; margin:0 auto; padding:70px 60px 40px;">
     <div style="position:absolute; top:78px; left:60px; width:440px; height:528px; background:#fff; padding:18px 18px 22px; box-shadow:0 22px 46px rgba(99,1,0,.20); transform:rotate(-4deg); z-index:3;">
-      <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="assets/photo-intro.jpeg" alt="Sai in Paris" style="width:100%; height:100%; object-fit:cover;" /></div>
+      <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img loading="eager" fetchpriority="high" decoding="async" src="assets/std/photo-intro.jpg" alt="Sai in Paris" style="width:100%; height:100%; object-fit:cover;" /></div>
     </div>
-    <img src="assets/pin.png" alt="" style="position:absolute; top:36px; left:212px; width:132px; z-index:5; transform:rotate(-4deg); filter:drop-shadow(0 6px 10px rgba(0,0,0,.28)); pointer-events:none;" />
+    <img loading="lazy" decoding="async" src="assets/std/pin.png" alt="" style="position:absolute; top:36px; left:212px; width:132px; z-index:5; transform:rotate(-4deg); filter:drop-shadow(0 6px 10px rgba(0,0,0,.28)); pointer-events:none;" />
 
     <div style="margin-left:auto; width:580px; text-align:right; padding-top:70px;">
       <div style="font-family:'Bootzy','Archivo',sans-serif; font-size:128px; line-height:.9; color:#630100;">Sai<br>Pawar</div>
@@ -86,7 +88,7 @@
   <div id="about" style="max-width:1240px; margin:0 auto; padding:100px 60px 80px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;">
     <div style="position:relative;">
       <div style="width:100%; aspect-ratio:4/5; background:#fff; padding:16px 16px 62px; box-shadow:0 20px 44px rgba(99,1,0,.20); transform:rotate(3deg);">
-        <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="assets/photo-about.png" alt="Sai in Seoul" style="width:100%; height:100%; object-fit:cover;" /></div>
+        <div style="width:100%; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center;"><img loading="lazy" decoding="async" src="assets/std/photo-about.jpg" alt="Sai in Seoul" style="width:100%; height:100%; object-fit:cover;" /></div>
         <div style="position:absolute; bottom:20px; left:0; right:0; text-align:center; font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100;">on the job ✎</div>
       </div>
       <div style="position:absolute; top:-18px; left:-14px; background:#b0935f; color:#faf7f2; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; padding:8px 14px; transform:rotate(-8deg); box-shadow:0 6px 14px rgba(0,0,0,.15);">EDHEC MiM '26</div>
@@ -126,7 +128,7 @@
             <a href="{{ p.href }}" target="_blank" rel="noopener" style="flex:0 0 360px; margin:0 10px; background:#faf7f2; padding:16px; text-decoration:none; display:block;">
               <div style="width:100%; aspect-ratio:4/3; position:relative; overflow:hidden; background:repeating-linear-gradient(45deg,#ece5da 0 14px,#e2d9cb 14px 28px);">
                 <sc-if value="{{ p.hasImg }}" hint-placeholder-val="{{ false }}">
-                  <img src="{{ p.img }}" alt="{{ p.title }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" />
+                  <img loading="lazy" decoding="async" src="{{ p.img }}" alt="{{ p.title }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" />
                 </sc-if>
                 <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}">
                   <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;"><span style="font-family:'Space Mono',monospace; font-size:12px; color:#630100;">project-visual.jpg</span></div>
@@ -156,7 +158,7 @@
 
     <div style="max-width:1200px; margin:0 auto; padding:0 20px;">
       <div ref="{{ mapRef }}" onMouseMove="{{ onMapMove }}" style="position:relative; width:100%; aspect-ratio:16/9; cursor:crosshair;">
-        <img src="assets/worked-map-themed.png" alt="World map of cities where Sai has worked" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none;" />
+        <img loading="lazy" decoding="async" src="assets/std/worked-map-themed.jpg" alt="World map of cities where Sai has worked" style="position:absolute; inset:0; width:100%; height:100%; object-fit:fill; pointer-events:none;" />
 
         <!-- interactive city pins (hover to reveal) -->
         <sc-for list="{{ cities }}" as="c" hint-placeholder-count="5">
@@ -166,7 +168,7 @@
               <div style="position:absolute; bottom:22px; left:50%; transform:translateX(-50%); width:264px; background:#faf7f2; border:1.5px solid #630100; box-shadow:0 16px 34px rgba(99,1,0,.32); padding:16px 18px; text-align:left; z-index:60; pointer-events:none;">
                 <sc-if value="{{ c.hasLogo }}" hint-placeholder-val="{{ false }}">
                   <div style="display:inline-flex; align-items:center; justify-content:center; height:44px; padding:6px 12px; background:#fff; border:1px solid #eadfce; border-radius:6px; margin-bottom:10px;">
-                    <img src="{{ c.logo }}" alt="{{ c.company }} logo" style="max-height:32px; max-width:180px; width:auto; height:auto; object-fit:contain; display:block;" />
+                    <img loading="lazy" decoding="async" src="{{ c.logo }}" alt="{{ c.company }} logo" style="max-height:32px; max-width:180px; width:auto; height:auto; object-fit:contain; display:block;" />
                   </div>
                 </sc-if>
                 <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a1a12; text-transform:uppercase;">{{ c.loc }}</div>
@@ -223,10 +225,10 @@
         </div>
       </div>
       <div style="position:relative;">
-        <div style="position:absolute; top:20px; left:24px; width:100%; aspect-ratio:16/10; background:#e4cfb4; box-shadow:0 14px 30px rgba(99,1,0,.16); transform:rotate(5deg); overflow:hidden;"><img src="assets/seoul-thumb.png" alt="Seoul skyline" style="width:100%; height:100%; object-fit:cover;" /></div>
+        <div style="position:absolute; top:20px; left:24px; width:100%; aspect-ratio:16/10; background:#e4cfb4; box-shadow:0 14px 30px rgba(99,1,0,.16); transform:rotate(5deg); overflow:hidden;"><img loading="lazy" decoding="async" src="assets/std/seoul-thumb.jpg" alt="Seoul skyline" style="width:100%; height:100%; object-fit:cover;" /></div>
         <div style="position:absolute; top:10px; left:12px; width:100%; aspect-ratio:16/10; background:#eddcc6; box-shadow:0 14px 30px rgba(99,1,0,.16); transform:rotate(2.5deg);"></div>
         <a href="assets/thesis-defense.pdf" target="_blank" rel="noopener" style="position:relative; display:block; width:100%; aspect-ratio:16/10; background:#fff; padding:14px; box-shadow:0 20px 44px rgba(99,1,0,.22);">
-          <img src="assets/thesis-thumb.jpg" alt="Thesis title slide" style="width:100%; height:100%; object-fit:cover;" />
+          <img loading="lazy" decoding="async" src="assets/std/thesis-thumb.jpg" alt="Thesis title slide" style="width:100%; height:100%; object-fit:cover;" />
         </a>
         <div style="position:absolute; bottom:-22px; right:-10px; background:#b0935f; color:#faf7f2; font-family:'Playfair Display',serif; font-style:italic; font-size:20px; padding:10px 16px; transform:rotate(-6deg); box-shadow:0 8px 18px rgba(0,0,0,.18);">K-beauty ♡</div>
       </div>
@@ -248,15 +250,15 @@
       <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:space-around; padding:40px 0;">
         <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">content creator on TikTok &amp; Instagram</div>
-          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(-8deg); flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(-8deg); flex-shrink:0;" />
         </div>
         <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">powered by iced coffee &amp; long walks</div>
-          <img src="assets/arrow-loop.png" alt="" style="width:100px; transform:scaleX(-1); flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-loop.png" alt="" style="width:100px; transform:scaleX(-1); flex-shrink:0;" />
         </div>
         <div style="display:flex; align-items:center; justify-content:flex-end; gap:4px;">
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:right;">day dreaming about my next solo trips (open to recommendations)</div>
-          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(10deg); flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-swoosh.png" alt="" style="width:100px; transform:scaleX(-1) rotate(10deg); flex-shrink:0;" />
         </div>
       </div>
 
@@ -266,14 +268,14 @@
           <!-- screen (behind frame) -->
           <div style="position:absolute; left:29.17%; top:10.96%; width:49.35%; height:54.37%; overflow:hidden; background:#1c1613; z-index:1;">
             <sc-if value="{{ ocIsImg }}" hint-placeholder-val="{{ true }}">
-              <img src="{{ ocImg }}" alt="Sai off the clock" style="width:100%; height:100%; object-fit:cover;" />
+              <img loading="lazy" decoding="async" src="{{ ocImg }}" alt="Sai off the clock" style="width:100%; height:100%; object-fit:cover;" />
             </sc-if>
             <sc-if value="{{ ocIsPh }}" hint-placeholder-val="{{ false }}">
               <div style="width:100%; height:100%; background:repeating-linear-gradient(45deg,#ece5da 0 14px,#e2d9cb 14px 28px); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px;"><span style="font-family:'Space Mono',monospace; font-size:13px; color:#630100; line-height:1.5;">{{ ocLabel }}</span></div>
             </sc-if>
           </div>
           <!-- frame overlay -->
-          <img src="assets/camera-frame.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;" />
+          <img loading="lazy" decoding="async" src="assets/std/camera-frame.png" alt="" style="position:absolute; inset:0; width:100%; height:100%; z-index:2; pointer-events:none;" />
           <!-- click here label -->
           <div style="position:absolute; left:55%; top:68.5%; font-family:'Bootzy','Archivo',sans-serif; font-size:40px; color:#f4d270; z-index:3; pointer-events:none; text-shadow:0 1px 3px rgba(0,0,0,.4);">click here</div>
           <!-- clickable button over circled control -->
@@ -284,15 +286,15 @@
       <!-- RIGHT captions column -->
       <div style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:space-around; padding:40px 0;">
         <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
-          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(8deg); flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(8deg); flex-shrink:0;" />
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">mentally still in Seoul having Kimchi Jjigae</div>
         </div>
         <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
-          <img src="assets/arrow-loop.png" alt="" style="width:100px; flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-loop.png" alt="" style="width:100px; flex-shrink:0;" />
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">soft spot for K-beauty &amp; great branding</div>
         </div>
         <div style="display:flex; align-items:center; justify-content:flex-start; gap:4px;">
-          <img src="assets/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(-10deg); flex-shrink:0;" />
+          <img loading="lazy" decoding="async" src="assets/std/arrow-swoosh.png" alt="" style="width:100px; transform:rotate(-10deg); flex-shrink:0;" />
           <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:#630100; line-height:1.28; text-align:left;">currently hunting the best cafés in Paris</div>
         </div>
       </div>
@@ -363,11 +365,11 @@ class Component extends DCLogic {
     this.state = { active: null, reelPaused: false, reelHover: false, ocIdx: 0, sent: false };
     this._last = 0;
     this.cityData = [
-      { name: "PARIS", left: 48.6, top: 41, above: false, logo: "assets/logo-ubisoft.png", loc: "Paris, France · 2026", company: "Ubisoft", title: "CRM Strategy Assistant", details: "Coordinating omnichannel CRM campaigns for Ubisoft+ and the Ubisoft Store: briefs, JIRA tickets, asset follow-ups, KPI reporting and A/B tests." },
-      { name: "MONTPELLIER", left: 48.3, top: 44.6, above: false, logo: "assets/logo-royalcanin.png", loc: "Montpellier, France · 2025", company: "Royal Canin", title: "Digital Project Manager Assistant", details: "Global digital transformation rollout onboarding 4 international markets; eCRM assets, KPIs and cross-functional stakeholder alignment." },
-      { name: "BRUXELLES", left: 49.5, top: 39, above: true, logo: "assets/logo-henkel.png", loc: "Brussels, Belgium · 2024", company: "Henkel", title: "E-commerce & Digital Marketing Assistant", details: "Sell-out and Nielsen benchmarks, A+ content and SEO for Bol.com, Kruidvat and Albert Heijn across the BNL region." },
-      { name: "MUMBAI", left: 67, top: 58.6, above: false, logo: "assets/logo-capgemini.png", loc: "Mumbai, India · 2021 to 2022", company: "Capgemini", title: "Senior Analyst", details: "North America SBU. Twice awarded the Star Award for outstanding performance." },
-      { name: "SEOUL", left: 81.6, top: 48.5, above: false, logo: "assets/logo-ewha.jpeg", loc: "Seoul, South Korea · 2025 to 2026", company: "EWHA Womans University", title: "Global MBA Exchange Year", details: "Marketing specialization and master's thesis on K-beauty perception among French Gen-Z consumers." }
+      { name: "PARIS", left: 48.6, top: 41, above: false, logo: "assets/std/logo-ubisoft.jpg", loc: "Paris, France · 2026", company: "Ubisoft", title: "CRM Strategy Assistant", details: "Coordinating omnichannel CRM campaigns for Ubisoft+ and the Ubisoft Store: briefs, JIRA tickets, asset follow-ups, KPI reporting and A/B tests." },
+      { name: "MONTPELLIER", left: 48.3, top: 44.6, above: false, logo: "assets/std/logo-royalcanin.jpg", loc: "Montpellier, France · 2025", company: "Royal Canin", title: "Digital Project Manager Assistant", details: "Global digital transformation rollout onboarding 4 international markets; eCRM assets, KPIs and cross-functional stakeholder alignment." },
+      { name: "BRUXELLES", left: 49.5, top: 39, above: true, logo: "assets/std/logo-henkel.jpg", loc: "Brussels, Belgium · 2024", company: "Henkel", title: "E-commerce & Digital Marketing Assistant", details: "Sell-out and Nielsen benchmarks, A+ content and SEO for Bol.com, Kruidvat and Albert Heijn across the BNL region." },
+      { name: "MUMBAI", left: 67, top: 58.6, above: false, logo: "assets/std/logo-capgemini.jpg", loc: "Mumbai, India · 2021 to 2022", company: "Capgemini", title: "Senior Analyst", details: "North America SBU. Twice awarded the Star Award for outstanding performance." },
+      { name: "SEOUL", left: 81.6, top: 48.5, above: false, logo: "assets/std/logo-ewha.jpg", loc: "Seoul, South Korea · 2025 to 2026", company: "EWHA Womans University", title: "Global MBA Exchange Year", details: "Marketing specialization and master's thesis on K-beauty perception among French Gen-Z consumers." }
     ];
   }
 
@@ -394,13 +396,13 @@ class Component extends DCLogic {
   renderVals() {
     const active = this.state.active;
     const rawProjects = [
-      { tag: "BRAND", title: "L'Oréal Brandstorm 2024", desc: "Semi-finalist · France · Choose Nova", img: "assets/brandstorm-thumb.png", href: "assets/loreal-brandstorm.pdf" },
-      { tag: "E-COMMERCE", title: "Henkel - E-commerce Promotions", desc: "Syoss promo & A+ content for BNL retailers", img: "assets/proj-henkel-syoss.jpg", href: "assets/henkel-promos.pptx" },
-      { tag: "INNOVATION", title: "LVMH Open Innovation", desc: "Winner · Audience Award", img: "assets/lvmh-thumb.png", href: "assets/lvmh-open-innovation.pdf" },
-      { tag: "IRL", title: "IRL - In Real Life Seoul", desc: "Living the K-beauty market first-hand", img: "assets/proj-irl-seoul.png", href: "" },
-      { tag: "STRATEGY", title: "Bacha Coffee - Marketing Strategy Korea", desc: "Market-entry strategy for Korea", img: "assets/proj-bacha.jpeg", href: "" },
-      { tag: "SOCIAL", title: "K-Beauty & Social Media", desc: "Social-led beauty brand playbook", img: "assets/proj-kbeauty.jpg", href: "" },
-      { tag: "DIGITAL", title: "Kylie Cosmetics - Digital Marketing Analysis", desc: "Digital & DTC growth teardown", img: "assets/proj-kylie.jpeg", href: "" }
+      { tag: "BRAND", title: "L'Oréal Brandstorm 2024", desc: "Semi-finalist · France · Choose Nova", img: "assets/std/brandstorm-thumb.jpg", href: "assets/loreal-brandstorm.pdf" },
+      { tag: "E-COMMERCE", title: "Henkel - E-commerce Promotions", desc: "Syoss promo & A+ content for BNL retailers", img: "assets/std/proj-henkel-syoss.jpg", href: "assets/henkel-promos.pptx" },
+      { tag: "INNOVATION", title: "LVMH Open Innovation", desc: "Winner · Audience Award", img: "assets/std/lvmh-thumb.jpg", href: "assets/lvmh-open-innovation.pdf" },
+      { tag: "IRL", title: "IRL - In Real Life Seoul", desc: "Living the K-beauty market first-hand", img: "assets/std/proj-irl-seoul.jpg", href: "" },
+      { tag: "STRATEGY", title: "Bacha Coffee - Marketing Strategy Korea", desc: "Market-entry strategy for Korea", img: "assets/std/proj-bacha.jpg", href: "" },
+      { tag: "SOCIAL", title: "K-Beauty & Social Media", desc: "Social-led beauty brand playbook", img: "assets/std/proj-kbeauty.jpg", href: "" },
+      { tag: "DIGITAL", title: "Kylie Cosmetics - Digital Marketing Analysis", desc: "Digital & DTC growth teardown", img: "assets/std/proj-kylie.jpg", href: "" }
     ];
     const projects = rawProjects.map(p => ({
       tag: p.tag, title: p.title, desc: p.desc,
@@ -421,13 +423,13 @@ class Component extends DCLogic {
       };
     });
     const ocItems = [
-      { img: "assets/photo-offclock.png" },
-      { img: "assets/oc-2.jpeg" },
-      { img: "assets/oc-3.jpeg" },
-      { img: "assets/oc-4.jpeg" },
-      { img: "assets/oc-5.jpeg" },
-      { img: "assets/oc-6.jpeg" },
-      { img: "assets/oc-7.jpeg" }
+      { img: "assets/std/photo-offclock.jpg" },
+      { img: "assets/std/oc-2.jpg" },
+      { img: "assets/std/oc-3.jpg" },
+      { img: "assets/std/oc-4.jpg" },
+      { img: "assets/std/oc-5.jpg" },
+      { img: "assets/std/oc-6.jpg" },
+      { img: "assets/std/oc-7.jpg" }
     ];
     const oc = ocItems[this.state.ocIdx % ocItems.length];
     return { mapRef: this.mapRef, onMapMove: this.handleMove, cities: cities, projectsLoop: projects.concat(projects),
